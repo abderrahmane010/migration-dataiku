@@ -1,0 +1,37 @@
+# Hypothèses sur le format d'export Dataiku
+
+Le format interne des exports DSS n'est pas documenté officiellement. Chaque hypothèse ci-dessous est :
+
+- marquée `# ASSUMPTION (H-xx)` dans le code ;
+- reproduite dans au moins une fixture (`tests/fixtures/make_fixture.py`) ;
+- **à revérifier sur un vrai export** La Poste (phase 1).
+
+Statuts : `SUPPOSÉE` (non vérifiée), `CONFIRMÉE`, `INFIRMÉE` (avec la correction apportée).
+
+| ID | Hypothèse | Source | Fixture | Statut |
+|---|---|---|---|---|
+| H-01 | Version DSS 15, champ `dssVersion` au format `15.x.y` | CLAUDE.md | les deux | SUPPOSÉE |
+| H-02 | `export-manifest.json` à la racine du ZIP, avec les clés `dssVersion`, `exportedWithPlugins` (liste `{pluginId, pluginVersion}`) et `foreignObjects` (liste `{projectKey, type, id}`) | CLAUDE.md (clés), forme des éléments supposée | les deux | SUPPOSÉE |
+| H-03 | `project_config/datasets/<nom>.json` contient `type`, `managed`, `params.{connection, catalog, schema, table, mode}`, `partitioning.dimensions`, `schema.columns[{name, type}]` et `checks` | CLAUDE.md | les deux | SUPPOSÉE |
+| H-04 | Une dimension de partition temporelle a la forme `{"name", "type": "time", "params": {"period": "DAY"}}` | supposée | `DEMO_COMPLEXE/parcels_events` | SUPPOSÉE |
+| H-05 | La dépendance de partition « même jour » s'écrit `deps: [{"func": "equals", "params": {}}]` dans `inputs.main.items[]` | supposée | `DEMO_COMPLEXE/sync_events` | SUPPOSÉE |
+| H-06 | `project_config/recipes/<nom>.json` contient `type`, `inputs.main.items[].{ref, deps}`, `outputs.main.items[].{ref, appendMode}`, `params.engineParams` et `neverRecomputeExistingPartitions` | CLAUDE.md | les deux | SUPPOSÉE |
+| H-07 | Une step Prepare a la forme `{"metaType": "PROCESSOR", "type", "params", "disabled"}` | CLAUDE.md | les deux | SUPPOSÉE |
+| H-08 | Une step groupée a `metaType: "GROUP"`, un `name` et des `steps` imbriquées | supposée (CLAUDE.md dit seulement « autre `metaType` ») | `DEMO_COMPLEXE/prepare_events` | SUPPOSÉE |
+| H-09 | Le payload d'une recette visuelle est `recipes/<nom>.<type>` : `.shaker`, `.join`, `.grouping`, `.window`, `.vstack`, `.split`, `.distinct`, `.pivot`, `.topn`, `.sort`, `.sync` | CLAUDE.md pour les principaux ; `.topn`, `.sort` et `.sync` supposés | les deux | SUPPOSÉE |
+| H-09a | Payload Join : `virtualInputs[].preFilter`, `joins[].{table1, table2, type, conditionsMode, on[].{column1, column2, type, caseInsensitive, normalizeText}}`, `selectedColumns`, `postFilter` | supposée | les deux | SUPPOSÉE |
+| H-09b | Payload Group : `keys[].column`, `values[]` avec un booléen par agrégat (`sum`, `avg`…), `globalCount`, `preFilter`, `postFilter` | supposée | les deux | SUPPOSÉE |
+| H-09c | Payload Window : `windows[].{partitioningColumns, orders[], enableLimits}` et `values[]` (avec `lag`/`lagValues`) | supposée | les deux | SUPPOSÉE |
+| H-09d | Payload Stack : `mode: "UNION"`, `virtualInputs`, `addOriginColumn`, `originColumnName` | supposée | les deux | SUPPOSÉE |
+| H-09e | Payload Split : `mode: "VALUES"`, `column`, `values[].{value, outputIndex}`, `defaultOutputIndex` | supposée | `DEMO_COMPLEXE/split_status` | SUPPOSÉE |
+| H-09f | Payload Top N : `topCount`, `bottomCount`, `orders[]`, `keys[]` | supposée | `DEMO_COMPLEXE/topn_late_depots` | SUPPOSÉE |
+| H-09g | Payload Pivot : `keyColumns`, `valuesMode` (`EXPLICIT`), `explicitValues`, `rowIdentifiers`, `aggregations` | supposée | `DEMO_COMPLEXE/pivot_status` | SUPPOSÉE |
+| H-10 | Le script d'une recette de code est un fichier texte à côté du JSON : `recipes/<nom>.py` (Python) et `recipes/<nom>.sql` (SQL, type `sql_query`) | supposée (CLAUDE.md : « emplacement à confirmer ») | `DEMO_COMPLEXE/python_scoring`, `sql_anomaly_report` | SUPPOSÉE |
+| H-11 | `params.json` → `exposedObjects.objects[].{type, localName, rules[].targetProject}` ; un consommateur référence `PROJET.dataset` dans ses entrées | CLAUDE.md et ROADMAP (phase 2) | `DEMO_SIMPLE` → `DEMO_COMPLEXE` | SUPPOSÉE |
+| H-12 | Zones de Flow dans `project_config/zones/<id>.json` (`id`, `name`, `color`), avec une clé `zone` sur les datasets et les recettes | supposée | `DEMO_COMPLEXE` | SUPPOSÉE |
+| H-13 | Variables de projet dans `project_config/variables.json` (`standard`, `local`) | supposée | les deux | SUPPOSÉE |
+| H-14 | Une recette de plugin a le type `CustomCode_<pluginId>-<recipeId>` et sa configuration dans `recipes/<nom>.json.payload` | supposée | `DEMO_COMPLEXE/plugin_geocode` | SUPPOSÉE |
+| H-15 | Scénarios dans `project_config/scenarios/<id>.json`, `type: "step_based"`, avec des steps `build_flowitem` (`params.builds[].{type, itemId, partitionsSpec}`) | supposée | `DEMO_COMPLEXE/DAILY_BUILD` | SUPPOSÉE |
+| H-15a | Triggers de scénario : `temporal` (`frequency`, `hour`, `minute`, `timezone`) et `ds_modified` (`projectKey`, `datasetName`) | supposée | `DEMO_COMPLEXE/DAILY_BUILD` | SUPPOSÉE |
+| H-16 | Un check de dataset a la forme `{"type": "recordCountInRange", "minimum", "maximum", "id"}` | supposée | `DEMO_COMPLEXE/daily_depot_kpis` | SUPPOSÉE |
+| H-17 | `${NODE_DC}` est une variable d'instance, absente de l'export : elle doit être signalée comme non résolue | CLAUDE.md | `DEMO_COMPLEXE/parcels_events` | SUPPOSÉE |
