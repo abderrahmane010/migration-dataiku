@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-and-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      # JVM pour PySpark local (tests marqués `spark`)
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Ruff (lint)
+        run: uv run ruff check .
+
+      - name: Ruff (format)
+        run: uv run ruff format --check .
+
+      - name: Mypy (strict, src/)
+        run: uv run mypy
+
+      - name: Fixtures à jour
+        run: |
+          uv run python tests/fixtures/make_fixture.py
+          git diff --exit-code -- tests/fixtures/exports/
+
+      - name: Pytest
+        run: uv run pytest
+
+      - name: CLI
+        run: uv run dku2dbx --help
