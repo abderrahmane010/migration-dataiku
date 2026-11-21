@@ -1,0 +1,3519 @@
+{
+  "meta": {
+    "generator": "dku2dbx",
+    "generator_version": "0.0.1",
+    "source_file": "DEMO_COMPLEXE.zip",
+    "source_sha256": "e209be7da1a956933b16ede144e97477458a0d2ac50007442cf991bf5a0c0f11"
+  },
+  "project": {
+    "datasets": [
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "anomalies_clean",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_anomalies_clean"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/anomalies_clean.json",
+        "source_sha256": "d0663b0f667067e3c6fb4a49335cf187151fdc7907fa8de791dab99ba0a5ce25",
+        "status": "KNOWN",
+        "table": "${projectKey}_anomalies_clean",
+        "table_resolved": "DEMO_COMPLEXE_anomalies_clean",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "anomalies",
+            "type": "bigint"
+          },
+          {
+            "name": "last_anomaly_ts",
+            "type": "timestamp"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "anomaly_report",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_anomaly_report"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/anomaly_report.json",
+        "source_sha256": "6d16f358ea70a81b5e130bef73d2546d1e0f6baabe6e38f042116779d8840499",
+        "status": "KNOWN",
+        "table": "${projectKey}_anomaly_report",
+        "table_resolved": "DEMO_COMPLEXE_anomaly_report",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "siret",
+            "type": "string"
+          },
+          {
+            "name": "company",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "b2b_clean",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_b2b_clean"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/b2b_clean.json",
+        "source_sha256": "18e460c228f8ed64b24abc6907a8b992bb57780a45d5bb80ec21e54fa7a6d179",
+        "status": "KNOWN",
+        "table": "${projectKey}_b2b_clean",
+        "table_resolved": "DEMO_COMPLEXE_b2b_clean",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "siret",
+            "type": "string"
+          },
+          {
+            "name": "company",
+            "type": "string"
+          },
+          {
+            "name": "score",
+            "type": "double"
+          },
+          {
+            "name": "is_good",
+            "type": "boolean"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "b2b_scores",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_b2b_scores"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/b2b_scores.json",
+        "source_sha256": "509af5092c19616623e09beea55b74948c151c36b7620a6a6d67a1d21158b54e",
+        "status": "KNOWN",
+        "table": "${projectKey}_b2b_scores",
+        "table_resolved": "DEMO_COMPLEXE_b2b_scores",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "score",
+            "type": "double"
+          },
+          {
+            "name": "is_good",
+            "type": "boolean"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "customer_scores",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_customer_scores"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/customer_scores.json",
+        "source_sha256": "18891f407f207a61ae471fcc544d8d6436a8fd8e65a3e374708916ce198422b6",
+        "status": "KNOWN",
+        "table": "${projectKey}_customer_scores",
+        "table_resolved": "DEMO_COMPLEXE_customer_scores",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "siret",
+            "type": "string"
+          },
+          {
+            "name": "company",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "crm",
+        "db_schema_resolved": "crm",
+        "managed": false,
+        "mode": "table",
+        "name": "customers_b2b",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "crm",
+          "table": "b2b_customers"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/customers_b2b.json",
+        "source_sha256": "fcf085c2f9bf8f052f02ad0a59e214b18c647a19e78ac7ca4eeef340c5c8d302",
+        "status": "KNOWN",
+        "table": "b2b_customers",
+        "table_resolved": "b2b_customers",
+        "type": "PostgreSQL",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [
+          {
+            "id": "chk_rows",
+            "maximum": null,
+            "minimum": 1,
+            "type": "recordCountInRange"
+          }
+        ],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "count",
+            "type": "bigint"
+          },
+          {
+            "name": "delay_minutes_avg",
+            "type": "double"
+          },
+          {
+            "name": "amount_eur_sum",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "daily_depot_kpis",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_daily_depot_kpis"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/daily_depot_kpis.json",
+        "source_sha256": "2685a56ae86dedd291d925551d582612cfb51aa987e1b1ce59c6d561ba31d8de",
+        "status": "KNOWN",
+        "table": "${projectKey}_daily_depot_kpis",
+        "table_resolved": "DEMO_COMPLEXE_daily_depot_kpis",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "department",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "delivered_enriched",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_delivered_enriched"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/delivered_enriched.json",
+        "source_sha256": "7d493ce49147fcba9b5c76f0b0bf65a677f919177be2bf5c202845808f6ccef8",
+        "status": "KNOWN",
+        "table": "${projectKey}_delivered_enriched",
+        "table_resolved": "DEMO_COMPLEXE_delivered_enriched",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "route_id",
+            "type": "string"
+          },
+          {
+            "name": "route_km",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "delivered_routes",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_delivered_routes"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/delivered_routes.json",
+        "source_sha256": "27be7d25afb80192ebb8784145b68cfddba436c6a0fe92dab5d56d53eeca211d",
+        "status": "KNOWN",
+        "table": "${projectKey}_delivered_routes",
+        "table_resolved": "DEMO_COMPLEXE_delivered_routes",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "day",
+            "type": "date"
+          },
+          {
+            "name": "delay_minutes_avg",
+            "type": "double"
+          },
+          {
+            "name": "delay_minutes_avg_lag",
+            "type": "double"
+          },
+          {
+            "name": "rank",
+            "type": "bigint"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "depot_trend",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_depot_trend"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depot_trend.json",
+        "source_sha256": "515f9fb10aca41fd7b834a34ae99e2afeb6771ec2ad15e46dd10a66a1d08d98d",
+        "status": "KNOWN",
+        "table": "${projectKey}_depot_trend",
+        "table_resolved": "DEMO_COMPLEXE_depot_trend",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "day",
+            "type": "date"
+          },
+          {
+            "name": "delay_minutes_avg",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "depot_trend_sorted",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_depot_trend_sorted"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depot_trend_sorted.json",
+        "source_sha256": "96848a2f82748ca3e625fcebe1e2579c88ec6e975cbb81f14a7ecaed722ce2a1",
+        "status": "KNOWN",
+        "table": "${projectKey}_depot_trend_sorted",
+        "table_resolved": "DEMO_COMPLEXE_depot_trend_sorted",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "type": "double"
+          },
+          {
+            "name": "longitude",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "ref",
+        "db_schema_resolved": "ref",
+        "managed": false,
+        "mode": "table",
+        "name": "depots",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "ref",
+          "table": "depots"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depots.json",
+        "source_sha256": "74b742187a394130f09b92ce8f5ae7a5bbb3bc6a71e5d34867cb71289701dc40",
+        "status": "KNOWN",
+        "table": "depots",
+        "table_resolved": "depots",
+        "type": "PostgreSQL",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "type": "double"
+          },
+          {
+            "name": "longitude",
+            "type": "double"
+          },
+          {
+            "name": "department",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "depots_clean",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_depots_clean"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depots_clean.json",
+        "source_sha256": "924ff757e857f45ac11eb8d4dc6e0472f40899d5974fcbca950f83da9123d86e",
+        "status": "KNOWN",
+        "table": "${projectKey}_depots_clean",
+        "table_resolved": "DEMO_COMPLEXE_depots_clean",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "type": "double"
+          },
+          {
+            "name": "longitude",
+            "type": "double"
+          },
+          {
+            "name": "geo_point",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "depots_geo",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_depots_geo"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depots_geo.json",
+        "source_sha256": "f4c22ba85cf508b9e6cccb8fe18d38aafcdf0f52a36e1157a2443ae796e1432a",
+        "status": "KNOWN",
+        "table": "${projectKey}_depots_geo",
+        "table_resolved": "DEMO_COMPLEXE_depots_geo",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "depot_name",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "type": "double"
+          },
+          {
+            "name": "longitude",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "depots_unique",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_depots_unique"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/depots_unique.json",
+        "source_sha256": "0bfaf924ab8205fd3cea63e6cb41d62f2e94c03a576297329841e2845298c5bc",
+        "status": "KNOWN",
+        "table": "${projectKey}_depots_unique",
+        "table_resolved": "DEMO_COMPLEXE_depots_unique",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          },
+          {
+            "name": "original_dataset",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_anomalies",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_anomalies"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/events_anomalies.json",
+        "source_sha256": "e1c5e4659394bb2175549703db78bec414c5fbb0972eefb57ae22164768f7ef0",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_anomalies",
+        "table_resolved": "DEMO_COMPLEXE_events_anomalies",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_clean",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_clean"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/events_clean.json",
+        "source_sha256": "ea5c86e71ac8ac35ca53c44472e09f966907317b4658b0d782902bef6fac7440",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_clean",
+        "table_resolved": "DEMO_COMPLEXE_events_clean",
+        "type": "PostgreSQL",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_delivered",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_delivered"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/events_delivered.json",
+        "source_sha256": "c2966ef1be0ec338d04c1f206e3f2d8c16a3a91c4f8d3ce7445439d6422851e9",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_delivered",
+        "table_resolved": "DEMO_COMPLEXE_events_delivered",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_failed",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_failed"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/events_failed.json",
+        "source_sha256": "6bc633786675aa33193d235fe2c9d0bb70341f504bdba228385cc8e69bb58a24",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_failed",
+        "table_resolved": "DEMO_COMPLEXE_events_failed",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "status_norm",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_other",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_other"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/events_other.json",
+        "source_sha256": "31826ce34371f8ef148ba940c9f35cd6e8703f8b8803d7608a5ab6a8b9bce009",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_other",
+        "table_resolved": "DEMO_COMPLEXE_events_other",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "events_sync",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_events_sync"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/events_sync.json",
+        "source_sha256": "f16d4215aece7ae955eadd8e7e9766fb1b947e2a23307d75745346815656af13",
+        "status": "KNOWN",
+        "table": "${projectKey}_events_sync",
+        "table_resolved": "DEMO_COMPLEXE_events_sync",
+        "type": "PostgreSQL",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "event_id",
+            "type": "string"
+          },
+          {
+            "name": "parcel_id",
+            "type": "string"
+          },
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "event_ts",
+            "type": "timestamp"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "delay_minutes",
+            "type": "int"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          }
+        ],
+        "connection": "hdfs_sources",
+        "db_schema": "logistics",
+        "db_schema_resolved": "logistics",
+        "managed": false,
+        "mode": "table",
+        "name": "parcels_events",
+        "params": {
+          "catalog": "",
+          "connection": "hdfs_sources",
+          "mode": "table",
+          "schema": "logistics",
+          "table": "${NODE_DC}_parcels_events"
+        },
+        "partitioning": [
+          {
+            "name": "day",
+            "params": {
+              "period": "DAY"
+            },
+            "type": "time"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/datasets/parcels_events.json",
+        "source_sha256": "0409beb634d489c9c202e32b94d5178f9dce139ec22fe8ed5ab97b8540d420b1",
+        "status": "KNOWN",
+        "table": "${NODE_DC}_parcels_events",
+        "table_resolved": "${NODE_DC}_parcels_events",
+        "type": "HDFS",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "route_id",
+            "type": "string"
+          },
+          {
+            "name": "count",
+            "type": "bigint"
+          },
+          {
+            "name": "route_km_sum",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "route_kpis",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_route_kpis"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/route_kpis.json",
+        "source_sha256": "5200a492215413187816c5c9c1cb4ea1e8c71983a1486c6c22cfe3ee100a96d5",
+        "status": "KNOWN",
+        "table": "${projectKey}_route_kpis",
+        "table_resolved": "DEMO_COMPLEXE_route_kpis",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "route_id",
+            "type": "string"
+          },
+          {
+            "name": "route_km",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "ref",
+        "db_schema_resolved": "ref",
+        "managed": false,
+        "mode": "table",
+        "name": "routes_ref",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "ref",
+          "table": "routes"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/routes_ref.json",
+        "source_sha256": "ff873b2da096b6c75c593db3ede9eb77922193f44d3fabaffe3a8bed93bd3867",
+        "status": "KNOWN",
+        "table": "routes",
+        "table_resolved": "routes",
+        "type": "PostgreSQL",
+        "zone": "z_ingest"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "DELIVERED_count",
+            "type": "bigint"
+          },
+          {
+            "name": "FAILED_count",
+            "type": "bigint"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "status_by_depot",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_status_by_depot"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/status_by_depot.json",
+        "source_sha256": "fed84ce23e440d337f012578506f75a7f6b776b1e6ded9899dcd07182da26643",
+        "status": "KNOWN",
+        "table": "${projectKey}_status_by_depot",
+        "table_resolved": "DEMO_COMPLEXE_status_by_depot",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "depot_id",
+            "type": "int"
+          },
+          {
+            "name": "delay_minutes_avg",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_COMPLEXE",
+        "managed": true,
+        "mode": "table",
+        "name": "top_late_depots",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_top_late_depots"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/top_late_depots.json",
+        "source_sha256": "35be84aa40ad9d74cefcd12081a8e2b05072d0b61606d4dbedb44e58505c8164",
+        "status": "KNOWN",
+        "table": "${projectKey}_top_late_depots",
+        "table_resolved": "DEMO_COMPLEXE_top_late_depots",
+        "type": "PostgreSQL",
+        "zone": "z_kpi"
+      }
+    ],
+    "dss_version": "15.0.0",
+    "exposed_objects": [
+      {
+        "local_name": "b2b_scores",
+        "target_projects": [],
+        "type": "DATASET"
+      }
+    ],
+    "flow": {
+      "edges": [
+        {
+          "source": "dataset:DEMO_SIMPLE.customer_stats",
+          "target": "recipe:python_scoring"
+        },
+        {
+          "source": "dataset:anomalies_clean",
+          "target": "recipe:sql_anomaly_report"
+        },
+        {
+          "source": "dataset:b2b_clean",
+          "target": "recipe:join_b2b_scores"
+        },
+        {
+          "source": "dataset:customer_scores",
+          "target": "recipe:join_b2b_scores"
+        },
+        {
+          "source": "dataset:customers_b2b",
+          "target": "recipe:prepare_b2b"
+        },
+        {
+          "source": "dataset:daily_depot_kpis",
+          "target": "recipe:window_depot_trend"
+        },
+        {
+          "source": "dataset:delivered_enriched",
+          "target": "recipe:group_daily_depot"
+        },
+        {
+          "source": "dataset:delivered_enriched",
+          "target": "recipe:join_routes"
+        },
+        {
+          "source": "dataset:delivered_enriched",
+          "target": "recipe:python_scoring"
+        },
+        {
+          "source": "dataset:delivered_routes",
+          "target": "recipe:group_routes"
+        },
+        {
+          "source": "dataset:depot_trend",
+          "target": "recipe:sort_depot_trend"
+        },
+        {
+          "source": "dataset:depot_trend",
+          "target": "recipe:topn_late_depots"
+        },
+        {
+          "source": "dataset:depots",
+          "target": "recipe:distinct_depots"
+        },
+        {
+          "source": "dataset:depots_clean",
+          "target": "recipe:join_delivered_depots"
+        },
+        {
+          "source": "dataset:depots_clean",
+          "target": "recipe:plugin_geocode"
+        },
+        {
+          "source": "dataset:depots_clean",
+          "target": "recipe:sql_anomaly_report"
+        },
+        {
+          "source": "dataset:depots_unique",
+          "target": "recipe:prepare_depots"
+        },
+        {
+          "source": "dataset:events_anomalies",
+          "target": "recipe:prepare_anomalies"
+        },
+        {
+          "source": "dataset:events_clean",
+          "target": "recipe:pivot_status"
+        },
+        {
+          "source": "dataset:events_clean",
+          "target": "recipe:split_status"
+        },
+        {
+          "source": "dataset:events_delivered",
+          "target": "recipe:join_delivered_depots"
+        },
+        {
+          "source": "dataset:events_failed",
+          "target": "recipe:stack_failed"
+        },
+        {
+          "source": "dataset:events_other",
+          "target": "recipe:stack_failed"
+        },
+        {
+          "source": "dataset:events_sync",
+          "target": "recipe:prepare_events"
+        },
+        {
+          "source": "dataset:parcels_events",
+          "target": "recipe:sync_events"
+        },
+        {
+          "source": "dataset:routes_ref",
+          "target": "recipe:join_routes"
+        },
+        {
+          "source": "recipe:distinct_depots",
+          "target": "dataset:depots_unique"
+        },
+        {
+          "source": "recipe:group_daily_depot",
+          "target": "dataset:daily_depot_kpis"
+        },
+        {
+          "source": "recipe:group_routes",
+          "target": "dataset:route_kpis"
+        },
+        {
+          "source": "recipe:join_b2b_scores",
+          "target": "dataset:b2b_scores"
+        },
+        {
+          "source": "recipe:join_delivered_depots",
+          "target": "dataset:delivered_enriched"
+        },
+        {
+          "source": "recipe:join_routes",
+          "target": "dataset:delivered_routes"
+        },
+        {
+          "source": "recipe:pivot_status",
+          "target": "dataset:status_by_depot"
+        },
+        {
+          "source": "recipe:plugin_geocode",
+          "target": "dataset:depots_geo"
+        },
+        {
+          "source": "recipe:prepare_anomalies",
+          "target": "dataset:anomalies_clean"
+        },
+        {
+          "source": "recipe:prepare_b2b",
+          "target": "dataset:b2b_clean"
+        },
+        {
+          "source": "recipe:prepare_depots",
+          "target": "dataset:depots_clean"
+        },
+        {
+          "source": "recipe:prepare_events",
+          "target": "dataset:events_clean"
+        },
+        {
+          "source": "recipe:python_scoring",
+          "target": "dataset:customer_scores"
+        },
+        {
+          "source": "recipe:sort_depot_trend",
+          "target": "dataset:depot_trend_sorted"
+        },
+        {
+          "source": "recipe:split_status",
+          "target": "dataset:events_delivered"
+        },
+        {
+          "source": "recipe:split_status",
+          "target": "dataset:events_failed"
+        },
+        {
+          "source": "recipe:split_status",
+          "target": "dataset:events_other"
+        },
+        {
+          "source": "recipe:sql_anomaly_report",
+          "target": "dataset:anomaly_report"
+        },
+        {
+          "source": "recipe:stack_failed",
+          "target": "dataset:events_anomalies"
+        },
+        {
+          "source": "recipe:sync_events",
+          "target": "dataset:events_sync"
+        },
+        {
+          "source": "recipe:topn_late_depots",
+          "target": "dataset:top_late_depots"
+        },
+        {
+          "source": "recipe:window_depot_trend",
+          "target": "dataset:depot_trend"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "dataset:DEMO_SIMPLE.customer_stats",
+          "kind": "FOREIGN_DATASET",
+          "name": "DEMO_SIMPLE.customer_stats"
+        },
+        {
+          "id": "dataset:anomalies_clean",
+          "kind": "DATASET",
+          "name": "anomalies_clean"
+        },
+        {
+          "id": "dataset:anomaly_report",
+          "kind": "DATASET",
+          "name": "anomaly_report"
+        },
+        {
+          "id": "dataset:b2b_clean",
+          "kind": "DATASET",
+          "name": "b2b_clean"
+        },
+        {
+          "id": "dataset:b2b_scores",
+          "kind": "DATASET",
+          "name": "b2b_scores"
+        },
+        {
+          "id": "dataset:customer_scores",
+          "kind": "DATASET",
+          "name": "customer_scores"
+        },
+        {
+          "id": "dataset:customers_b2b",
+          "kind": "DATASET",
+          "name": "customers_b2b"
+        },
+        {
+          "id": "dataset:daily_depot_kpis",
+          "kind": "DATASET",
+          "name": "daily_depot_kpis"
+        },
+        {
+          "id": "dataset:delivered_enriched",
+          "kind": "DATASET",
+          "name": "delivered_enriched"
+        },
+        {
+          "id": "dataset:delivered_routes",
+          "kind": "DATASET",
+          "name": "delivered_routes"
+        },
+        {
+          "id": "dataset:depot_trend",
+          "kind": "DATASET",
+          "name": "depot_trend"
+        },
+        {
+          "id": "dataset:depot_trend_sorted",
+          "kind": "DATASET",
+          "name": "depot_trend_sorted"
+        },
+        {
+          "id": "dataset:depots",
+          "kind": "DATASET",
+          "name": "depots"
+        },
+        {
+          "id": "dataset:depots_clean",
+          "kind": "DATASET",
+          "name": "depots_clean"
+        },
+        {
+          "id": "dataset:depots_geo",
+          "kind": "DATASET",
+          "name": "depots_geo"
+        },
+        {
+          "id": "dataset:depots_unique",
+          "kind": "DATASET",
+          "name": "depots_unique"
+        },
+        {
+          "id": "dataset:events_anomalies",
+          "kind": "DATASET",
+          "name": "events_anomalies"
+        },
+        {
+          "id": "dataset:events_clean",
+          "kind": "DATASET",
+          "name": "events_clean"
+        },
+        {
+          "id": "dataset:events_delivered",
+          "kind": "DATASET",
+          "name": "events_delivered"
+        },
+        {
+          "id": "dataset:events_failed",
+          "kind": "DATASET",
+          "name": "events_failed"
+        },
+        {
+          "id": "dataset:events_other",
+          "kind": "DATASET",
+          "name": "events_other"
+        },
+        {
+          "id": "dataset:events_sync",
+          "kind": "DATASET",
+          "name": "events_sync"
+        },
+        {
+          "id": "dataset:parcels_events",
+          "kind": "DATASET",
+          "name": "parcels_events"
+        },
+        {
+          "id": "dataset:route_kpis",
+          "kind": "DATASET",
+          "name": "route_kpis"
+        },
+        {
+          "id": "dataset:routes_ref",
+          "kind": "DATASET",
+          "name": "routes_ref"
+        },
+        {
+          "id": "dataset:status_by_depot",
+          "kind": "DATASET",
+          "name": "status_by_depot"
+        },
+        {
+          "id": "dataset:top_late_depots",
+          "kind": "DATASET",
+          "name": "top_late_depots"
+        },
+        {
+          "id": "recipe:distinct_depots",
+          "kind": "RECIPE",
+          "name": "distinct_depots"
+        },
+        {
+          "id": "recipe:group_daily_depot",
+          "kind": "RECIPE",
+          "name": "group_daily_depot"
+        },
+        {
+          "id": "recipe:group_routes",
+          "kind": "RECIPE",
+          "name": "group_routes"
+        },
+        {
+          "id": "recipe:join_b2b_scores",
+          "kind": "RECIPE",
+          "name": "join_b2b_scores"
+        },
+        {
+          "id": "recipe:join_delivered_depots",
+          "kind": "RECIPE",
+          "name": "join_delivered_depots"
+        },
+        {
+          "id": "recipe:join_routes",
+          "kind": "RECIPE",
+          "name": "join_routes"
+        },
+        {
+          "id": "recipe:pivot_status",
+          "kind": "RECIPE",
+          "name": "pivot_status"
+        },
+        {
+          "id": "recipe:plugin_geocode",
+          "kind": "RECIPE",
+          "name": "plugin_geocode"
+        },
+        {
+          "id": "recipe:prepare_anomalies",
+          "kind": "RECIPE",
+          "name": "prepare_anomalies"
+        },
+        {
+          "id": "recipe:prepare_b2b",
+          "kind": "RECIPE",
+          "name": "prepare_b2b"
+        },
+        {
+          "id": "recipe:prepare_depots",
+          "kind": "RECIPE",
+          "name": "prepare_depots"
+        },
+        {
+          "id": "recipe:prepare_events",
+          "kind": "RECIPE",
+          "name": "prepare_events"
+        },
+        {
+          "id": "recipe:python_scoring",
+          "kind": "RECIPE",
+          "name": "python_scoring"
+        },
+        {
+          "id": "recipe:sort_depot_trend",
+          "kind": "RECIPE",
+          "name": "sort_depot_trend"
+        },
+        {
+          "id": "recipe:split_status",
+          "kind": "RECIPE",
+          "name": "split_status"
+        },
+        {
+          "id": "recipe:sql_anomaly_report",
+          "kind": "RECIPE",
+          "name": "sql_anomaly_report"
+        },
+        {
+          "id": "recipe:stack_failed",
+          "kind": "RECIPE",
+          "name": "stack_failed"
+        },
+        {
+          "id": "recipe:sync_events",
+          "kind": "RECIPE",
+          "name": "sync_events"
+        },
+        {
+          "id": "recipe:topn_late_depots",
+          "kind": "RECIPE",
+          "name": "topn_late_depots"
+        },
+        {
+          "id": "recipe:window_depot_trend",
+          "kind": "RECIPE",
+          "name": "window_depot_trend"
+        }
+      ],
+      "topological_order": [
+        "dataset:DEMO_SIMPLE.customer_stats",
+        "dataset:customers_b2b",
+        "dataset:depots",
+        "dataset:parcels_events",
+        "dataset:routes_ref",
+        "recipe:distinct_depots",
+        "dataset:depots_unique",
+        "recipe:prepare_b2b",
+        "dataset:b2b_clean",
+        "recipe:prepare_depots",
+        "dataset:depots_clean",
+        "recipe:plugin_geocode",
+        "dataset:depots_geo",
+        "recipe:sync_events",
+        "dataset:events_sync",
+        "recipe:prepare_events",
+        "dataset:events_clean",
+        "recipe:pivot_status",
+        "dataset:status_by_depot",
+        "recipe:split_status",
+        "dataset:events_delivered",
+        "dataset:events_failed",
+        "dataset:events_other",
+        "recipe:join_delivered_depots",
+        "dataset:delivered_enriched",
+        "recipe:group_daily_depot",
+        "dataset:daily_depot_kpis",
+        "recipe:join_routes",
+        "dataset:delivered_routes",
+        "recipe:group_routes",
+        "dataset:route_kpis",
+        "recipe:python_scoring",
+        "dataset:customer_scores",
+        "recipe:join_b2b_scores",
+        "dataset:b2b_scores",
+        "recipe:stack_failed",
+        "dataset:events_anomalies",
+        "recipe:prepare_anomalies",
+        "dataset:anomalies_clean",
+        "recipe:sql_anomaly_report",
+        "dataset:anomaly_report",
+        "recipe:window_depot_trend",
+        "dataset:depot_trend",
+        "recipe:sort_depot_trend",
+        "dataset:depot_trend_sorted",
+        "recipe:topn_late_depots",
+        "dataset:top_late_depots"
+      ]
+    },
+    "foreign_objects": [
+      {
+        "id": "customer_stats",
+        "project_key": "DEMO_SIMPLE",
+        "type": "DATASET"
+      }
+    ],
+    "issues": [
+      {
+        "kind": "UNRESOLVED_VARIABLE",
+        "message": "variable '${NODE_DC}' in params.table cannot be resolved from the export",
+        "object_kind": "DATASET",
+        "object_name": "parcels_events"
+      }
+    ],
+    "key": "DEMO_COMPLEXE",
+    "name": "Démo complexe (synthétique)",
+    "plugins": [
+      {
+        "plugin_id": "geo-toolkit",
+        "used_by_recipes": [
+          "plugin_geocode"
+        ],
+        "version": "1.2.0"
+      }
+    ],
+    "recipes": [
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "depots",
+            "project_key": null,
+            "ref": "depots",
+            "role": "main"
+          }
+        ],
+        "name": "distinct_depots",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "depots_unique",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "globalCount": false,
+          "keys": [
+            {
+              "column": "depot_id"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          }
+        },
+        "payload_path": "project_config/recipes/distinct_depots.distinct",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/distinct_depots.json",
+        "source_sha256": "fff1f905ab9f28e5df0bc15ecc96aa449155ff213eb9c2b72ab4da92c0cbad30",
+        "status": "KNOWN",
+        "type": "distinct",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "delivered_enriched",
+            "project_key": null,
+            "ref": "delivered_enriched",
+            "role": "main"
+          }
+        ],
+        "name": "group_daily_depot",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "daily_depot_kpis",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "globalCount": true,
+          "keys": [
+            {
+              "column": "depot_id"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          },
+          "values": [
+            {
+              "avg": true,
+              "column": "delay_minutes",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": false
+            },
+            {
+              "avg": false,
+              "column": "amount_eur",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": true
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/group_daily_depot.grouping",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/group_daily_depot.json",
+        "source_sha256": "f40aaeccb24fd6423a6050d5995be3213281045ab605a9d05e937763fdd31299",
+        "status": "KNOWN",
+        "type": "grouping",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "delivered_routes",
+            "project_key": null,
+            "ref": "delivered_routes",
+            "role": "main"
+          }
+        ],
+        "name": "group_routes",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "route_kpis",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "globalCount": true,
+          "keys": [
+            {
+              "column": "route_id"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          },
+          "values": [
+            {
+              "avg": false,
+              "column": "route_km",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": true
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/group_routes.grouping",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/group_routes.json",
+        "source_sha256": "cc231d2388ed6c40e88e980e623232ed35b0c8d7635e0b42d8484bfaced6c3e0",
+        "status": "KNOWN",
+        "type": "grouping",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "customer_scores",
+            "project_key": null,
+            "ref": "customer_scores",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "b2b_clean",
+            "project_key": null,
+            "ref": "b2b_clean",
+            "role": "main"
+          }
+        ],
+        "name": "join_b2b_scores",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "b2b_scores",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "enableAutoCastInJoinConditions": false,
+          "joins": [
+            {
+              "conditionsMode": "AND",
+              "on": [
+                {
+                  "caseInsensitive": false,
+                  "column1": {
+                    "name": "customer_id",
+                    "table": 0
+                  },
+                  "column2": {
+                    "name": "customer_id",
+                    "table": 1
+                  },
+                  "normalizeText": false,
+                  "type": "EQ"
+                }
+              ],
+              "table1": 0,
+              "table2": 1,
+              "type": "INNER"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "selectedColumns": {
+            "mode": "ALL"
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/join_b2b_scores.join",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/join_b2b_scores.json",
+        "source_sha256": "36337bf04a942688b1713a58e9b1f9c5a3d5d9f5e0d76fda788142b2d5ccee7d",
+        "status": "KNOWN",
+        "type": "join",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "SPARK",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "events_delivered",
+            "project_key": null,
+            "ref": "events_delivered",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "depots_clean",
+            "project_key": null,
+            "ref": "depots_clean",
+            "role": "main"
+          }
+        ],
+        "name": "join_delivered_depots",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "delivered_enriched",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "SPARK"
+          }
+        },
+        "payload": {
+          "enableAutoCastInJoinConditions": false,
+          "joins": [
+            {
+              "conditionsMode": "AND",
+              "on": [
+                {
+                  "caseInsensitive": false,
+                  "column1": {
+                    "name": "depot_id",
+                    "table": 0
+                  },
+                  "column2": {
+                    "name": "depot_id",
+                    "table": 1
+                  },
+                  "normalizeText": false,
+                  "type": "EQ"
+                }
+              ],
+              "table1": 0,
+              "table2": 1,
+              "type": "LEFT"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "selectedColumns": {
+            "mode": "ALL"
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/join_delivered_depots.join",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/join_delivered_depots.json",
+        "source_sha256": "09c8d0b9213ae492becff8b49c8eed4414d5db7f3e1427a8f6892da6bc668152",
+        "status": "KNOWN",
+        "type": "join",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "delivered_enriched",
+            "project_key": null,
+            "ref": "delivered_enriched",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "routes_ref",
+            "project_key": null,
+            "ref": "routes_ref",
+            "role": "main"
+          }
+        ],
+        "name": "join_routes",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "delivered_routes",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "enableAutoCastInJoinConditions": false,
+          "joins": [
+            {
+              "conditionsMode": "AND",
+              "on": [
+                {
+                  "caseInsensitive": false,
+                  "column1": {
+                    "name": "depot_id",
+                    "table": 0
+                  },
+                  "column2": {
+                    "name": "depot_id",
+                    "table": 1
+                  },
+                  "normalizeText": false,
+                  "type": "EQ"
+                }
+              ],
+              "table1": 0,
+              "table2": 1,
+              "type": "INNER"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "selectedColumns": {
+            "mode": "ALL"
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/join_routes.join",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/join_routes.json",
+        "source_sha256": "05ee7bafdce112e956ba36ab145ef93c46ff3c1d9342c8f73680bae79fe5615f",
+        "status": "KNOWN",
+        "type": "join",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "events_clean",
+            "project_key": null,
+            "ref": "events_clean",
+            "role": "main"
+          }
+        ],
+        "name": "pivot_status",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "status_by_depot",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "aggregations": [
+            {
+              "column": "",
+              "type": "count"
+            }
+          ],
+          "explicitValues": [
+            "DELIVERED",
+            "FAILED"
+          ],
+          "keyColumns": [
+            "status_norm"
+          ],
+          "rowIdentifiers": [
+            "depot_id"
+          ],
+          "valuesMode": "EXPLICIT"
+        },
+        "payload_path": "project_config/recipes/pivot_status.pivot",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/pivot_status.json",
+        "source_sha256": "c966cf0227a8f436e3ded119396962670b791b725a83367b4245d6a4899abfd3",
+        "status": "KNOWN",
+        "type": "pivot",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "PLUGIN",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "depots_clean",
+            "project_key": null,
+            "ref": "depots_clean",
+            "role": "main"
+          }
+        ],
+        "name": "plugin_geocode",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "depots_geo",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "customConfig": {
+            "lat_column": "latitude",
+            "lon_column": "longitude",
+            "output_column": "geo_point"
+          }
+        },
+        "payload_path": "project_config/recipes/plugin_geocode.json.payload",
+        "payload_raw": null,
+        "plugin_id": "geo-toolkit",
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/plugin_geocode.json",
+        "source_sha256": "349bb7c81fd204f2b11a991ec853c3ceca137cb01ec56f604e86ce1a0d62df7d",
+        "status": "KNOWN",
+        "type": "CustomCode_geo-toolkit-geocode",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "events_anomalies",
+            "project_key": null,
+            "ref": "events_anomalies",
+            "role": "main"
+          }
+        ],
+        "name": "prepare_anomalies",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "anomalies_clean",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "columnsSelection": {
+            "mode": "ALL"
+          },
+          "origin": "PREPARE_RECIPE",
+          "steps": [
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "COLUMNS",
+                "columns": [
+                  "original_dataset"
+                ],
+                "keep": false
+              },
+              "type": "ColumnsSelector"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "action": "KEEP_ROW",
+                "expression": "delay_minutes + 0 > 0"
+              },
+              "type": "FilterOnFormula"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/prepare_anomalies.shaker",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": [
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "COLUMNS",
+              "columns": [
+                "original_dataset"
+              ],
+              "keep": false
+            },
+            "steps": [],
+            "type": "ColumnsSelector"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "action": "KEEP_ROW",
+              "expression": "delay_minutes + 0 > 0"
+            },
+            "steps": [],
+            "type": "FilterOnFormula"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/recipes/prepare_anomalies.json",
+        "source_sha256": "96441d206200e0b6204021b9679638ac4964ff5e28c7427850a716bbe1dd119c",
+        "status": "KNOWN",
+        "type": "shaker",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "customers_b2b",
+            "project_key": null,
+            "ref": "customers_b2b",
+            "role": "main"
+          }
+        ],
+        "name": "prepare_b2b",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "b2b_clean",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "columnsSelection": {
+            "mode": "ALL"
+          },
+          "origin": "PREPARE_RECIPE",
+          "steps": [
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "company"
+                ],
+                "mode": "TRIM"
+              },
+              "type": "StringTransformer"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "siret"
+                ],
+                "value": "N/A"
+              },
+              "type": "FillEmptyWithValue"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/prepare_b2b.shaker",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": [
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "company"
+              ],
+              "mode": "TRIM"
+            },
+            "steps": [],
+            "type": "StringTransformer"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "siret"
+              ],
+              "value": "N/A"
+            },
+            "steps": [],
+            "type": "FillEmptyWithValue"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/recipes/prepare_b2b.json",
+        "source_sha256": "4a865aa8188550d99b37e27d446e3e456ef02dcf808d74cb975bb4088ce7b2cb",
+        "status": "KNOWN",
+        "type": "shaker",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "depots_unique",
+            "project_key": null,
+            "ref": "depots_unique",
+            "role": "main"
+          }
+        ],
+        "name": "prepare_depots",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "depots_clean",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "columnsSelection": {
+            "mode": "ALL"
+          },
+          "origin": "PREPARE_RECIPE",
+          "steps": [
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "column": "department",
+                "expression": "substring(postcode, 0, 2)"
+              },
+              "type": "CreateColumnWithGREL"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "countryCode": "FR",
+                "zipCodeColumn": "postcode"
+              },
+              "type": "ZipCodeGeocoder"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/prepare_depots.shaker",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": [
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "column": "department",
+              "expression": "substring(postcode, 0, 2)"
+            },
+            "steps": [],
+            "type": "CreateColumnWithGREL"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "countryCode": "FR",
+              "zipCodeColumn": "postcode"
+            },
+            "steps": [],
+            "type": "ZipCodeGeocoder"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/recipes/prepare_depots.json",
+        "source_sha256": "50edf550b1c6a24774ad535e53c2bb5444c6678da0a41666b622c8fa5b98fc43",
+        "status": "KNOWN",
+        "type": "shaker",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [
+              {
+                "func": "equals",
+                "params": {}
+              }
+            ],
+            "name": "events_sync",
+            "project_key": null,
+            "ref": "events_sync",
+            "role": "main"
+          }
+        ],
+        "name": "prepare_events",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "events_clean",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "columnsSelection": {
+            "mode": "ALL"
+          },
+          "origin": "PREPARE_RECIPE",
+          "steps": [
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "COLUMNS",
+                "columns": [
+                  "internal_flag"
+                ],
+                "keep": false
+              },
+              "type": "ColumnsSelector"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "status"
+                ],
+                "mode": "TO_UPPER"
+              },
+              "type": "StringTransformer"
+            },
+            {
+              "disabled": false,
+              "metaType": "GROUP",
+              "name": "normalisation",
+              "steps": [
+                {
+                  "disabled": false,
+                  "metaType": "PROCESSOR",
+                  "params": {
+                    "column": "status_norm",
+                    "expression": "if(isBlank(status), \"UNKNOWN\", status)"
+                  },
+                  "type": "CreateColumnWithGREL"
+                },
+                {
+                  "disabled": false,
+                  "metaType": "PROCESSOR",
+                  "params": {
+                    "appliesTo": "SINGLE_COLUMN",
+                    "columns": [
+                      "delay_minutes"
+                    ],
+                    "value": "0"
+                  },
+                  "type": "FillEmptyWithValue"
+                }
+              ]
+            },
+            {
+              "disabled": true,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "event_ts"
+                ],
+                "formats": [
+                  "yyyy-MM-dd HH:mm:ss"
+                ],
+                "lang": "auto",
+                "timezone_id": "Europe/Paris"
+              },
+              "type": "DateParser"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/prepare_events.shaker",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": [
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "COLUMNS",
+              "columns": [
+                "internal_flag"
+              ],
+              "keep": false
+            },
+            "steps": [],
+            "type": "ColumnsSelector"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "status"
+              ],
+              "mode": "TO_UPPER"
+            },
+            "steps": [],
+            "type": "StringTransformer"
+          },
+          {
+            "disabled": false,
+            "meta_type": "GROUP",
+            "name": "normalisation",
+            "params": {},
+            "steps": [
+              {
+                "disabled": false,
+                "meta_type": "PROCESSOR",
+                "name": null,
+                "params": {
+                  "column": "status_norm",
+                  "expression": "if(isBlank(status), \"UNKNOWN\", status)"
+                },
+                "steps": [],
+                "type": "CreateColumnWithGREL"
+              },
+              {
+                "disabled": false,
+                "meta_type": "PROCESSOR",
+                "name": null,
+                "params": {
+                  "appliesTo": "SINGLE_COLUMN",
+                  "columns": [
+                    "delay_minutes"
+                  ],
+                  "value": "0"
+                },
+                "steps": [],
+                "type": "FillEmptyWithValue"
+              }
+            ],
+            "type": null
+          },
+          {
+            "disabled": true,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "event_ts"
+              ],
+              "formats": [
+                "yyyy-MM-dd HH:mm:ss"
+              ],
+              "lang": "auto",
+              "timezone_id": "Europe/Paris"
+            },
+            "steps": [],
+            "type": "DateParser"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/recipes/prepare_events.json",
+        "source_sha256": "ac0c54db0787fbf039553f11cccabe0ab15de57116b8443cfd73e2ab66d39f0e",
+        "status": "KNOWN",
+        "type": "shaker",
+        "zone": "z_ingest"
+      },
+      {
+        "category": "CODE",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "delivered_enriched",
+            "project_key": null,
+            "ref": "delivered_enriched",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "customer_stats",
+            "project_key": "DEMO_SIMPLE",
+            "ref": "DEMO_SIMPLE.customer_stats",
+            "role": "main"
+          }
+        ],
+        "name": "python_scoring",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "customer_scores",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": null,
+        "payload_path": "project_config/recipes/python_scoring.py",
+        "payload_raw": "# -*- coding: utf-8 -*-\n# Synthetic Python recipe (fixture). Exercises the usual dataiku idioms.\nimport dataiku\nimport pandas as pd\n\nvariables = dataiku.get_custom_variables()\nthreshold = float(variables.get(\"score_threshold\", \"0.5\"))\n\ndeliveries = dataiku.Dataset(\"delivered_enriched\").get_dataframe()\nstats = dataiku.Dataset(\"DEMO_SIMPLE.customer_stats\").get_dataframe()\n\ndf = deliveries.merge(stats, on=\"customer_id\", how=\"left\")\ndf[\"score\"] = (df[\"amount_eur_sum\"].fillna(0) / (df[\"delay_minutes\"].fillna(0) + 1)).round(3)\ndf[\"is_good\"] = df[\"score\"] >= threshold\n\nout = dataiku.Dataset(\"customer_scores\")\nout.write_with_schema(df[[\"customer_id\", \"score\", \"is_good\"]])\n",
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/python_scoring.json",
+        "source_sha256": "e792e63edeab62623d2ae2640be2395552fbdd60445861af414ecc1a03473a72",
+        "status": "KNOWN",
+        "type": "python",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "depot_trend",
+            "project_key": null,
+            "ref": "depot_trend",
+            "role": "main"
+          }
+        ],
+        "name": "sort_depot_trend",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "depot_trend_sorted",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "orders": [
+            {
+              "column": "depot_id",
+              "desc": false
+            },
+            {
+              "column": "day",
+              "desc": true
+            }
+          ],
+          "preFilter": {
+            "enabled": false
+          }
+        },
+        "payload_path": "project_config/recipes/sort_depot_trend.sort",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/sort_depot_trend.json",
+        "source_sha256": "2c26f421af94c747eaa4479e553efe2ae1e1f1cb27ad5276dc82b3cf4209c1f7",
+        "status": "KNOWN",
+        "type": "sort",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [
+              {
+                "func": "equals",
+                "params": {}
+              }
+            ],
+            "name": "events_clean",
+            "project_key": null,
+            "ref": "events_clean",
+            "role": "main"
+          }
+        ],
+        "name": "split_status",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "events_delivered",
+            "role": "main"
+          },
+          {
+            "append_mode": false,
+            "ref": "events_failed",
+            "role": "main"
+          },
+          {
+            "append_mode": false,
+            "ref": "events_other",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "column": "status_norm",
+          "defaultOutputIndex": 2,
+          "mode": "VALUES",
+          "values": [
+            {
+              "outputIndex": 0,
+              "value": "DELIVERED"
+            },
+            {
+              "outputIndex": 1,
+              "value": "FAILED"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/split_status.split",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/split_status.json",
+        "source_sha256": "4a169ee275773ce27fc9b190b664c3c2927558a7b330570a8c0c0aa75e4544c0",
+        "status": "KNOWN",
+        "type": "split",
+        "zone": null
+      },
+      {
+        "category": "CODE",
+        "engine": "SQL",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "anomalies_clean",
+            "project_key": null,
+            "ref": "anomalies_clean",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "depots_clean",
+            "project_key": null,
+            "ref": "depots_clean",
+            "role": "main"
+          }
+        ],
+        "name": "sql_anomaly_report",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "anomaly_report",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "SQL"
+          }
+        },
+        "payload": null,
+        "payload_path": "project_config/recipes/sql_anomaly_report.sql",
+        "payload_raw": "-- Synthetic SQL recipe (fixture).\nSELECT a.depot_id,\n       d.depot_name,\n       COUNT(*) AS anomalies,\n       MAX(a.event_ts) AS last_anomaly_ts\nFROM ${projectKey}_anomalies_clean a\nLEFT JOIN ${projectKey}_depots_clean d ON a.depot_id = d.depot_id\nWHERE a.event_ts >= '${start_date}'\nGROUP BY a.depot_id, d.depot_name\n",
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/sql_anomaly_report.json",
+        "source_sha256": "5c89ff7f5d0da5c323cd151bcf326dca7b94a4eb3a01d929ba97f7e64e8c8719",
+        "status": "KNOWN",
+        "type": "sql_query",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "events_failed",
+            "project_key": null,
+            "ref": "events_failed",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "events_other",
+            "project_key": null,
+            "ref": "events_other",
+            "role": "main"
+          }
+        ],
+        "name": "stack_failed",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": true,
+            "ref": "events_anomalies",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "addOriginColumn": true,
+          "mode": "UNION",
+          "originColumnName": "original_dataset",
+          "postFilter": {
+            "enabled": false
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/stack_failed.vstack",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/stack_failed.json",
+        "source_sha256": "929106fc86b05502cf9f9f109c70850ad0c5010d1ff2ed86ac3f181e73254b9d",
+        "status": "KNOWN",
+        "type": "vstack",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [
+              {
+                "func": "equals",
+                "params": {}
+              }
+            ],
+            "name": "parcels_events",
+            "project_key": null,
+            "ref": "parcels_events",
+            "role": "main"
+          }
+        ],
+        "name": "sync_events",
+        "never_recompute_existing_partitions": true,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "events_sync",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "schemaMode": "STRICT_SYNC"
+        },
+        "payload_path": "project_config/recipes/sync_events.sync",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/sync_events.json",
+        "source_sha256": "f16a0d9dd79b8d28f719615402feeed12513c9d91f830b77f651fe290aa0b260",
+        "status": "KNOWN",
+        "type": "sync",
+        "zone": "z_ingest"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "depot_trend",
+            "project_key": null,
+            "ref": "depot_trend",
+            "role": "main"
+          }
+        ],
+        "name": "topn_late_depots",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "top_late_depots",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "bottomCount": 0,
+          "keys": [],
+          "orders": [
+            {
+              "column": "delay_minutes_avg",
+              "desc": true
+            }
+          ],
+          "preFilter": {
+            "enabled": false
+          },
+          "topCount": 10
+        },
+        "payload_path": "project_config/recipes/topn_late_depots.topn",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/topn_late_depots.json",
+        "source_sha256": "3843a2868f565e31394404f4477092bd66310e452294425547a0f06e899f8d02",
+        "status": "KNOWN",
+        "type": "topn",
+        "zone": "z_kpi"
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "daily_depot_kpis",
+            "project_key": null,
+            "ref": "daily_depot_kpis",
+            "role": "main"
+          }
+        ],
+        "name": "window_depot_trend",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "depot_trend",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "computeRank": true,
+          "computeRowNumber": true,
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          },
+          "values": [
+            {
+              "avg": false,
+              "column": "delay_minutes_avg",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "lag": true,
+              "lagValues": "1",
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": false
+            }
+          ],
+          "windows": [
+            {
+              "enableLimits": false,
+              "enableOrdering": true,
+              "enablePartitioning": true,
+              "orders": [
+                {
+                  "column": "day",
+                  "desc": false
+                }
+              ],
+              "partitioningColumns": [
+                "depot_id"
+              ]
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/window_depot_trend.window",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/window_depot_trend.json",
+        "source_sha256": "42b09aae462445d461cb7335e9b2101aeeb9bec5c95363acd28b26a10afde4ae",
+        "status": "KNOWN",
+        "type": "window",
+        "zone": "z_kpi"
+      }
+    ],
+    "scenarios": [
+      {
+        "active": true,
+        "id": "DAILY_BUILD",
+        "name": "Construction quotidienne",
+        "raw": null,
+        "source_path": "project_config/scenarios/DAILY_BUILD.json",
+        "source_sha256": "f5d21ea0590e0b23cc06e6742c60dd9fb8045f94d05ba2fca949f0e544fa5a65",
+        "status": "KNOWN",
+        "steps": [
+          {
+            "id": "s_build_kpis",
+            "name": "KPIs du jour",
+            "params": {
+              "builds": [
+                {
+                  "itemId": "daily_depot_kpis",
+                  "partitionsSpec": "PREVIOUS_DAY",
+                  "type": "DATASET"
+                }
+              ],
+              "jobType": "RECURSIVE_BUILD"
+            },
+            "type": "build_flowitem"
+          },
+          {
+            "id": "s_build_final",
+            "name": "Sorties finales",
+            "params": {
+              "builds": [
+                {
+                  "itemId": "b2b_scores",
+                  "type": "DATASET"
+                },
+                {
+                  "itemId": "top_late_depots",
+                  "type": "DATASET"
+                }
+              ],
+              "jobType": "RECURSIVE_BUILD"
+            },
+            "type": "build_flowitem"
+          }
+        ],
+        "triggers": [
+          {
+            "active": true,
+            "id": "t_daily",
+            "params": {
+              "frequency": "Daily",
+              "hour": 5,
+              "minute": 0,
+              "timezone": "Europe/Paris"
+            },
+            "type": "temporal"
+          },
+          {
+            "active": false,
+            "id": "t_src",
+            "params": {
+              "datasetName": "parcels_events",
+              "projectKey": "DEMO_COMPLEXE"
+            },
+            "type": "ds_modified"
+          }
+        ],
+        "type": "step_based"
+      }
+    ],
+    "unparsed_entries": [],
+    "unresolved_variables": [
+      {
+        "field": "params.table",
+        "object_kind": "DATASET",
+        "object_name": "parcels_events",
+        "variable": "NODE_DC"
+      }
+    ],
+    "variables": {
+      "score_threshold": "0.5",
+      "start_date": "2026-01-01"
+    },
+    "zones": [
+      {
+        "color": "#2ab1ac",
+        "id": "z_ingest",
+        "name": "Ingestion"
+      },
+      {
+        "color": "#ff9900",
+        "id": "z_kpi",
+        "name": "Indicateurs"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1034 @@
+{
+  "meta": {
+    "generator": "dku2dbx",
+    "generator_version": "0.0.1",
+    "source_file": "DEMO_SIMPLE.zip",
+    "source_sha256": "61d0bd34d941d421f5701f968392bd96423cb90096fe58da7f3ac45af7928e40"
+  },
+  "project": {
+    "datasets": [
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "count",
+            "type": "bigint"
+          },
+          {
+            "name": "amount_eur_sum",
+            "type": "double"
+          },
+          {
+            "name": "amount_eur_avg",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_SIMPLE",
+        "managed": true,
+        "mode": "table",
+        "name": "customer_stats",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_customer_stats"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/customer_stats.json",
+        "source_sha256": "2f4b9e8b868be4f3c2a753ba078e5881e8e5c25b068a5a479fd8d173d7f46dcb",
+        "status": "KNOWN",
+        "table": "${projectKey}_customer_stats",
+        "table_resolved": "DEMO_SIMPLE_customer_stats",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "segment",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "crm",
+        "db_schema_resolved": "crm",
+        "managed": false,
+        "mode": "table",
+        "name": "customers",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "crm",
+          "table": "customers"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/customers.json",
+        "source_sha256": "628637a7a8f0cd5de0088ee066ac3f50053fa410a474d6da833581ea83c4ea4d",
+        "status": "KNOWN",
+        "table": "customers",
+        "table_resolved": "customers",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "original_dataset",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_SIMPLE",
+        "managed": true,
+        "mode": "table",
+        "name": "orders_all",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_orders_all"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_all.json",
+        "source_sha256": "2455e3b3f0508fe9d4a3a39695863e62d3e39dba503cd9679671981091c46882",
+        "status": "KNOWN",
+        "table": "${projectKey}_orders_all",
+        "table_resolved": "DEMO_SIMPLE_orders_all",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "sales_archive",
+        "db_schema_resolved": "sales_archive",
+        "managed": false,
+        "mode": "table",
+        "name": "orders_archive",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "sales_archive",
+          "table": "orders_2020"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_archive.json",
+        "source_sha256": "9cdbe3cb28b24a7e5442a947cfb17fd8b2450656d3e51c5141089b1ecf80332a",
+        "status": "KNOWN",
+        "table": "orders_2020",
+        "table_resolved": "orders_2020",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "original_dataset",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "segment",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_SIMPLE",
+        "managed": true,
+        "mode": "table",
+        "name": "orders_enriched",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_orders_enriched"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_enriched.json",
+        "source_sha256": "106cf7aa28500b4d71024801a817a99f41506e4e5548e06e14f61231dd32537f",
+        "status": "KNOWN",
+        "table": "${projectKey}_orders_enriched",
+        "table_resolved": "DEMO_SIMPLE_orders_enriched",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_SIMPLE",
+        "managed": true,
+        "mode": "table",
+        "name": "orders_prepared",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_orders_prepared"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_prepared.json",
+        "source_sha256": "d5364bc19c2c5c123a251414a003a56d109fc7792f5515e5269f174f32ba1428",
+        "status": "KNOWN",
+        "table": "${projectKey}_orders_prepared",
+        "table_resolved": "DEMO_SIMPLE_orders_prepared",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "amount_eur",
+            "type": "double"
+          },
+          {
+            "name": "rank",
+            "type": "bigint"
+          },
+          {
+            "name": "amount_eur_sum",
+            "type": "double"
+          }
+        ],
+        "connection": "pg_managed",
+        "db_schema": "dku_${projectKey}",
+        "db_schema_resolved": "dku_DEMO_SIMPLE",
+        "managed": true,
+        "mode": "table",
+        "name": "orders_ranked",
+        "params": {
+          "catalog": "",
+          "connection": "pg_managed",
+          "mode": "table",
+          "schema": "dku_${projectKey}",
+          "table": "${projectKey}_orders_ranked"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_ranked.json",
+        "source_sha256": "813be0a4411a7b793e0fc9909319c2bd3dc6dde38dc91c74a77f9c14e5aea063",
+        "status": "KNOWN",
+        "table": "${projectKey}_orders_ranked",
+        "table_resolved": "DEMO_SIMPLE_orders_ranked",
+        "type": "PostgreSQL",
+        "zone": null
+      },
+      {
+        "catalog": null,
+        "checks": [],
+        "columns": [
+          {
+            "name": "order_id",
+            "type": "bigint"
+          },
+          {
+            "name": "customer_id",
+            "type": "bigint"
+          },
+          {
+            "name": "order_date",
+            "type": "date"
+          },
+          {
+            "name": "amount",
+            "type": "double"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "connection": "pg_sources",
+        "db_schema": "sales",
+        "db_schema_resolved": "sales",
+        "managed": false,
+        "mode": "table",
+        "name": "orders_raw",
+        "params": {
+          "catalog": "",
+          "connection": "pg_sources",
+          "mode": "table",
+          "schema": "sales",
+          "table": "${projectKey}_orders_raw"
+        },
+        "partitioning": [],
+        "raw": null,
+        "source_path": "project_config/datasets/orders_raw.json",
+        "source_sha256": "670a0176bb5c1389e50d1b928e13b2dcdb2979c16e4d9d4191f9c734f2052dbf",
+        "status": "KNOWN",
+        "table": "${projectKey}_orders_raw",
+        "table_resolved": "DEMO_SIMPLE_orders_raw",
+        "type": "PostgreSQL",
+        "zone": null
+      }
+    ],
+    "dss_version": "15.0.0",
+    "exposed_objects": [
+      {
+        "local_name": "customer_stats",
+        "target_projects": [
+          "DEMO_COMPLEXE"
+        ],
+        "type": "DATASET"
+      }
+    ],
+    "flow": {
+      "edges": [
+        {
+          "source": "dataset:customers",
+          "target": "recipe:join_orders_customers"
+        },
+        {
+          "source": "dataset:orders_all",
+          "target": "recipe:join_orders_customers"
+        },
+        {
+          "source": "dataset:orders_archive",
+          "target": "recipe:stack_orders"
+        },
+        {
+          "source": "dataset:orders_enriched",
+          "target": "recipe:group_by_customer"
+        },
+        {
+          "source": "dataset:orders_enriched",
+          "target": "recipe:window_orders"
+        },
+        {
+          "source": "dataset:orders_prepared",
+          "target": "recipe:stack_orders"
+        },
+        {
+          "source": "dataset:orders_raw",
+          "target": "recipe:prepare_orders"
+        },
+        {
+          "source": "recipe:group_by_customer",
+          "target": "dataset:customer_stats"
+        },
+        {
+          "source": "recipe:join_orders_customers",
+          "target": "dataset:orders_enriched"
+        },
+        {
+          "source": "recipe:prepare_orders",
+          "target": "dataset:orders_prepared"
+        },
+        {
+          "source": "recipe:stack_orders",
+          "target": "dataset:orders_all"
+        },
+        {
+          "source": "recipe:window_orders",
+          "target": "dataset:orders_ranked"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "dataset:customer_stats",
+          "kind": "DATASET",
+          "name": "customer_stats"
+        },
+        {
+          "id": "dataset:customers",
+          "kind": "DATASET",
+          "name": "customers"
+        },
+        {
+          "id": "dataset:orders_all",
+          "kind": "DATASET",
+          "name": "orders_all"
+        },
+        {
+          "id": "dataset:orders_archive",
+          "kind": "DATASET",
+          "name": "orders_archive"
+        },
+        {
+          "id": "dataset:orders_enriched",
+          "kind": "DATASET",
+          "name": "orders_enriched"
+        },
+        {
+          "id": "dataset:orders_prepared",
+          "kind": "DATASET",
+          "name": "orders_prepared"
+        },
+        {
+          "id": "dataset:orders_ranked",
+          "kind": "DATASET",
+          "name": "orders_ranked"
+        },
+        {
+          "id": "dataset:orders_raw",
+          "kind": "DATASET",
+          "name": "orders_raw"
+        },
+        {
+          "id": "recipe:group_by_customer",
+          "kind": "RECIPE",
+          "name": "group_by_customer"
+        },
+        {
+          "id": "recipe:join_orders_customers",
+          "kind": "RECIPE",
+          "name": "join_orders_customers"
+        },
+        {
+          "id": "recipe:prepare_orders",
+          "kind": "RECIPE",
+          "name": "prepare_orders"
+        },
+        {
+          "id": "recipe:stack_orders",
+          "kind": "RECIPE",
+          "name": "stack_orders"
+        },
+        {
+          "id": "recipe:window_orders",
+          "kind": "RECIPE",
+          "name": "window_orders"
+        }
+      ],
+      "topological_order": [
+        "dataset:customers",
+        "dataset:orders_archive",
+        "dataset:orders_raw",
+        "recipe:prepare_orders",
+        "dataset:orders_prepared",
+        "recipe:stack_orders",
+        "dataset:orders_all",
+        "recipe:join_orders_customers",
+        "dataset:orders_enriched",
+        "recipe:group_by_customer",
+        "dataset:customer_stats",
+        "recipe:window_orders",
+        "dataset:orders_ranked"
+      ]
+    },
+    "foreign_objects": [],
+    "issues": [],
+    "key": "DEMO_SIMPLE",
+    "name": "Démo simple (synthétique)",
+    "plugins": [],
+    "recipes": [
+      {
+        "category": "VISUAL",
+        "engine": "SQL",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "orders_enriched",
+            "project_key": null,
+            "ref": "orders_enriched",
+            "role": "main"
+          }
+        ],
+        "name": "group_by_customer",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "customer_stats",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "SQL"
+          }
+        },
+        "payload": {
+          "globalCount": true,
+          "keys": [
+            {
+              "column": "customer_id"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          },
+          "values": [
+            {
+              "avg": true,
+              "column": "amount_eur",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": true
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/group_by_customer.grouping",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/group_by_customer.json",
+        "source_sha256": "1c9b4442831f06aa08f0156f92be4b28c5c28917007265c6a7648a8b180c9005",
+        "status": "KNOWN",
+        "type": "grouping",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "SQL",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "orders_all",
+            "project_key": null,
+            "ref": "orders_all",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "customers",
+            "project_key": null,
+            "ref": "customers",
+            "role": "main"
+          }
+        ],
+        "name": "join_orders_customers",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "orders_enriched",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "SQL"
+          }
+        },
+        "payload": {
+          "enableAutoCastInJoinConditions": false,
+          "joins": [
+            {
+              "conditionsMode": "AND",
+              "on": [
+                {
+                  "caseInsensitive": false,
+                  "column1": {
+                    "name": "customer_id",
+                    "table": 0
+                  },
+                  "column2": {
+                    "name": "customer_id",
+                    "table": 1
+                  },
+                  "normalizeText": false,
+                  "type": "EQ"
+                }
+              ],
+              "table1": 0,
+              "table2": 1,
+              "type": "LEFT"
+            }
+          ],
+          "postFilter": {
+            "enabled": false
+          },
+          "selectedColumns": {
+            "mode": "ALL"
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/join_orders_customers.join",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/join_orders_customers.json",
+        "source_sha256": "440b50dc30bf6c188885d6fde00a9093bc1fc71385f1a83114eec3767d377a2f",
+        "status": "KNOWN",
+        "type": "join",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "orders_raw",
+            "project_key": null,
+            "ref": "orders_raw",
+            "role": "main"
+          }
+        ],
+        "name": "prepare_orders",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "orders_prepared",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "columnsSelection": {
+            "mode": "ALL"
+          },
+          "origin": "PREPARE_RECIPE",
+          "steps": [
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "status"
+                ],
+                "value": "UNKNOWN"
+              },
+              "type": "FillEmptyWithValue"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "column": "amount_eur",
+                "expression": "round(amount * 1.0, 2)"
+              },
+              "type": "CreateColumnWithGREL"
+            },
+            {
+              "disabled": false,
+              "metaType": "PROCESSOR",
+              "params": {
+                "action": "REMOVE_ROW",
+                "appliesTo": "SINGLE_COLUMN",
+                "columns": [
+                  "status"
+                ],
+                "matchingMode": "FULL_STRING",
+                "normalizationMode": "EXACT",
+                "values": [
+                  "CANCELLED"
+                ]
+              },
+              "type": "FilterOnValue"
+            },
+            {
+              "disabled": true,
+              "metaType": "PROCESSOR",
+              "params": {
+                "renamings": [
+                  {
+                    "from": "amount_eur",
+                    "to": "amount_eur"
+                  }
+                ]
+              },
+              "type": "ColumnRenamer"
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/prepare_orders.shaker",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": [
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "status"
+              ],
+              "value": "UNKNOWN"
+            },
+            "steps": [],
+            "type": "FillEmptyWithValue"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "column": "amount_eur",
+              "expression": "round(amount * 1.0, 2)"
+            },
+            "steps": [],
+            "type": "CreateColumnWithGREL"
+          },
+          {
+            "disabled": false,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "action": "REMOVE_ROW",
+              "appliesTo": "SINGLE_COLUMN",
+              "columns": [
+                "status"
+              ],
+              "matchingMode": "FULL_STRING",
+              "normalizationMode": "EXACT",
+              "values": [
+                "CANCELLED"
+              ]
+            },
+            "steps": [],
+            "type": "FilterOnValue"
+          },
+          {
+            "disabled": true,
+            "meta_type": "PROCESSOR",
+            "name": null,
+            "params": {
+              "renamings": [
+                {
+                  "from": "amount_eur",
+                  "to": "amount_eur"
+                }
+              ]
+            },
+            "steps": [],
+            "type": "ColumnRenamer"
+          }
+        ],
+        "raw": null,
+        "source_path": "project_config/recipes/prepare_orders.json",
+        "source_sha256": "758fe743d9b39702c2324957cdea3fc8d6c9036f782a0c9298e7a6c53d5324c2",
+        "status": "KNOWN",
+        "type": "shaker",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "DSS",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "orders_prepared",
+            "project_key": null,
+            "ref": "orders_prepared",
+            "role": "main"
+          },
+          {
+            "deps": [],
+            "name": "orders_archive",
+            "project_key": null,
+            "ref": "orders_archive",
+            "role": "main"
+          }
+        ],
+        "name": "stack_orders",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "orders_all",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "DSS"
+          }
+        },
+        "payload": {
+          "addOriginColumn": true,
+          "mode": "UNION",
+          "originColumnName": "original_dataset",
+          "postFilter": {
+            "enabled": false
+          },
+          "virtualInputs": [
+            {
+              "index": 0,
+              "preFilter": {
+                "enabled": false
+              }
+            },
+            {
+              "index": 1,
+              "preFilter": {
+                "enabled": false
+              }
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/stack_orders.vstack",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/stack_orders.json",
+        "source_sha256": "52b0f78d647c4543b2f07fc39b741525b283301704e876fe7e66781fedd66a7f",
+        "status": "KNOWN",
+        "type": "vstack",
+        "zone": null
+      },
+      {
+        "category": "VISUAL",
+        "engine": "SQL",
+        "inputs": [
+          {
+            "deps": [],
+            "name": "orders_enriched",
+            "project_key": null,
+            "ref": "orders_enriched",
+            "role": "main"
+          }
+        ],
+        "name": "window_orders",
+        "never_recompute_existing_partitions": false,
+        "outputs": [
+          {
+            "append_mode": false,
+            "ref": "orders_ranked",
+            "role": "main"
+          }
+        ],
+        "params": {
+          "engineParams": {
+            "engineType": "SQL"
+          }
+        },
+        "payload": {
+          "computeRank": true,
+          "computeRowNumber": true,
+          "postFilter": {
+            "enabled": false
+          },
+          "preFilter": {
+            "enabled": false
+          },
+          "values": [
+            {
+              "avg": false,
+              "column": "amount_eur",
+              "count": false,
+              "countDistinct": false,
+              "first": false,
+              "last": false,
+              "max": false,
+              "min": false,
+              "sum": true
+            }
+          ],
+          "windows": [
+            {
+              "enableLimits": false,
+              "enableOrdering": true,
+              "enablePartitioning": true,
+              "orders": [
+                {
+                  "column": "order_date",
+                  "desc": false
+                }
+              ],
+              "partitioningColumns": [
+                "customer_id"
+              ]
+            }
+          ]
+        },
+        "payload_path": "project_config/recipes/window_orders.window",
+        "payload_raw": null,
+        "plugin_id": null,
+        "prepare_steps": null,
+        "raw": null,
+        "source_path": "project_config/recipes/window_orders.json",
+        "source_sha256": "aec0de74c452b515e217d6971a90b4e8ce7c770e7ecad9d54a9da70a7a43b4ac",
+        "status": "KNOWN",
+        "type": "window",
+        "zone": null
+      }
+    ],
+    "scenarios": [],
+    "unparsed_entries": [],
+    "unresolved_variables": [],
+    "variables": {
+      "min_amount": 0
+    },
+    "zones": []
+  }
+}
