@@ -11,7 +11,7 @@ Statuts : `SUPPOSÉE` (non vérifiée), `CONFIRMÉE`, `INFIRMÉE` (avec la corre
 | ID | Hypothèse | Source | Fixture | Statut |
 |---|---|---|---|---|
 | H-01 | Version DSS 15, champ `dssVersion` au format `15.x.y` | CLAUDE.md | les deux | SUPPOSÉE |
-| H-02 | `export-manifest.json` à la racine du ZIP, avec les clés `dssVersion`, `exportedWithPlugins` (liste `{pluginId, pluginVersion}`) et `foreignObjects` (liste `{projectKey, type, id}`) | CLAUDE.md (clés), forme des éléments supposée | les deux | SUPPOSÉE |
+| H-02 | `export-manifest.json` à la racine du ZIP, avec les clés `dssVersion`, `exportedWithPlugins` (liste `{pluginId, pluginVersion}`) et `foreignObjects` (liste `{projectKey, type, id}`). Le lecteur accepte aussi un unique dossier racine (`<dossier>/export-manifest.json`) | CLAUDE.md (clés), forme des éléments supposée | les deux ; `test_manifest_under_a_single_top_folder` | SUPPOSÉE |
 | H-03 | `project_config/datasets/<nom>.json` contient `type`, `managed`, `params.{connection, catalog, schema, table, mode}`, `partitioning.dimensions`, `schema.columns[{name, type}]` et `checks` | CLAUDE.md | les deux | SUPPOSÉE |
 | H-04 | Une dimension de partition temporelle a la forme `{"name", "type": "time", "params": {"period": "DAY"}}` | supposée | `DEMO_COMPLEXE/parcels_events` | SUPPOSÉE |
 | H-05 | La dépendance de partition « même jour » s'écrit `deps: [{"func": "equals", "params": {}}]` dans `inputs.main.items[]` | supposée | `DEMO_COMPLEXE/sync_events` | SUPPOSÉE |
@@ -35,3 +35,16 @@ Statuts : `SUPPOSÉE` (non vérifiée), `CONFIRMÉE`, `INFIRMÉE` (avec la corre
 | H-15a | Triggers de scénario : `temporal` (`frequency`, `hour`, `minute`, `timezone`) et `ds_modified` (`projectKey`, `datasetName`) | supposée | `DEMO_COMPLEXE/DAILY_BUILD` | SUPPOSÉE |
 | H-16 | Un check de dataset a la forme `{"type": "recordCountInRange", "minimum", "maximum", "id"}` | supposée | `DEMO_COMPLEXE/daily_depot_kpis` | SUPPOSÉE |
 | H-17 | `${NODE_DC}` est une variable d'instance, absente de l'export : elle doit être signalée comme non résolue | CLAUDE.md | `DEMO_COMPLEXE/parcels_events` | SUPPOSÉE |
+
+### Hypothèses ajoutées par le lecteur (phase 1)
+
+| ID | Hypothèse | Source | Fixture / test | Statut |
+|---|---|---|---|---|
+| H-06 (complément) | `inputs` et `outputs` sont des dictionnaires `{"<rôle>": {"items": [...]}}`. `main` est le rôle usuel ; les autres rôles sont lus et conservés dans l'IR (`role`) | supposée | les deux | SUPPOSÉE |
+| H-18 | Une variable s'écrit `${nom}`, où `nom` contient des lettres, des chiffres, `_` et `.`. Une variable non résolue reste telle quelle dans le texte et est listée | supposée | `tests/test_variables.py` | SUPPOSÉE |
+| H-19 | Une variable scalaire est substituée par son texte (booléens en `true` / `false`). Une variable objet ou liste n'est jamais substituée : elle est signalée comme non résolue | supposée | `test_scalar_values_only` | SUPPOSÉE |
+| H-20 | Liste des identifiants de types de recettes (visuelles, code, ML, préfixe `CustomCode_`). Un type absent de la liste n'est pas une erreur : il est conservé avec `status = UNKNOWN` | supposée | `test_unknown_types_are_kept_and_reported` | SUPPOSÉE |
+| H-21 | Liste des identifiants de types de datasets (`PostgreSQL`, `HDFS`, `Snowflake`…) | supposée | idem | SUPPOSÉE |
+| H-22 | Le moteur choisi est lu dans `params.engineParams.engineType` de la recette | supposée, **peu sûre** : le moteur réel pourrait n'être visible que via l'API (`get_selected_engine_details()`) | les deux | SUPPOSÉE |
+| H-23 | Le nom d'une recette ne contient pas de `.`. Son payload est l'unique fichier `recipes/<nom>.*` autre que `<nom>.json` ; en cas de pluralité, l'extension égale au type est préférée, sinon une anomalie est levée | supposée | `test_missing_reference_and_payload` | SUPPOSÉE |
+| H-24 | Priorité des variables, de la plus faible à la plus forte : variables d'instance fournies à l'appel, puis `standard`, puis `local`, puis `projectKey` (intégrée). Les variables d'instance (`${NODE_DC}`…) ne figurent pas dans l'export | supposée | `test_variable_priority`, `test_instance_variables_resolve_the_rest` | SUPPOSÉE |

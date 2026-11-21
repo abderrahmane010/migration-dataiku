@@ -13,5 +13,5 @@ Repris de la section « Pièges sémantiques » de `ROADMAP.md`. Chaque piège d
 | Top N à égalité | Ordre non déterministe | Idem | Ajouter une colonne de départage | 3 | à faire |
 | Distances géographiques | — | `st_distance` est planaire (degrés) | Utiliser `st_distancesphere` pour des mètres | 4 | à faire |
 | Typage | « Meanings » et inférence Dataiku | Types Spark stricts | Utiliser le schéma déclaré dans l'export, avec un `cast` explicite | 3–4 | à faire |
-| Steps Prepare groupées | `metaType` différent de `PROCESSOR` | — | Lever une erreur, ne jamais filtrer en silence | 4 | à faire (fixture prête : `DEMO_COMPLEXE/prepare_events`) |
-| Variables dans les noms de tables | `${projectKey}`, `${NODE_DC}` | — | Résoudre, sinon signaler | 1 | à faire (fixture prête : `DEMO_COMPLEXE/parcels_events`) |
+| Steps Prepare groupées | `metaType` différent de `PROCESSOR` | — | Lever une erreur, ne jamais filtrer en silence | 4 | à faire. La lecture conserve déjà le groupe et ses steps imbriquées (`test_prepare_steps_including_disabled_and_grouped`) ; l'erreur sera levée par le traducteur (phase 4) |
+| Variables dans les noms de tables | `${projectKey}`, `${NODE_DC}` | — | Résoudre, sinon signaler | 1 | **fait** : `test_variables_resolved_in_table_names`, `test_unresolved_variable_is_listed` (`tests/test_reader.py`) et `tests/test_variables.py` |

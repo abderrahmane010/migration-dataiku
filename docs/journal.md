@@ -45,6 +45,53 @@ Une entrée par phase de `ROADMAP.md`, rédigée à la fin de la phase, avant la
 
 ### Points ouverts
 
-- **Java absent du poste** : le test PySpark local est sauté. Java 17+ sera indispensable dès la phase 3. En CI, Java est installé et le test s'exécute.
-- **CI non encore exécutée** : aucun remote GitHub n'est configuré. La CI ne sera « verte » qu'après le premier push.
+- ~~**Java absent du poste**~~ : résolu le 2026-11-22. Java a été installé et le test PySpark local passe.
+- ~~**CI non encore exécutée**~~ : résolu le 2026-11-22. Le dépôt a été poussé sur GitHub et la CI est verte.
 - Toutes les hypothèses de format sont `SUPPOSÉE` tant qu'aucun vrai export n'est disponible.
+
+---
+
+## Phase 1 — Lecteur d'export → modèle interne (2026-11-22)
+
+**Statut :** terminée côté développement, **en attente de validation humaine**.
+
+Phase 0 validée par le responsable le 2026-11-22 (CI verte sur GitHub).
+
+### Réalisé
+
+- **Modèle interne** (`model/ir.py`, pydantic v2, `extra="forbid"`) :
+  - les objets : `Project`, `Zone`, `Dataset`, `Recipe` (avec `RecipeInput` et `RecipeOutput`), `PrepareStep` (récursif pour les groupes), `Scenario` (triggers et steps), `PluginUsage`, `ExposedObject` et `ForeignObject` ;
+  - l'enrobage `IrDocument` et son en-tête de traçabilité `IrMeta` : générateur, version, fichier source et SHA-256 du ZIP ;
+  - un `status` (`KNOWN` ou `UNKNOWN`) sur chaque objet et une `category` sur chaque recette (`VISUAL`, `CODE`, `PLUGIN`, `ML` ou `UNKNOWN`) ;
+  - la définition brute (`raw`), conservée pour tout objet de type inconnu ;
+  - le SHA-256 du JSON source sur chaque dataset, recette et scénario, pour les en-têtes de la phase 6.
+- **Lecteur ZIP** (`reader/zip_reader.py`) :
+  - il lit le ZIP en mémoire, sans jamais l'extraire, et refuse les entrées de plus de 64 Mo ;
+  - il interprète le manifest, `params.json`, `variables.json`, les datasets, les recettes et leurs payloads (JSON pour les recettes visuelles et les plugins, texte pour le code), les scénarios et les zones ;
+  - il ne plante jamais sur un type inconnu : l'objet est conservé, et `Project.issues` reçoit une anomalie. Les types d'anomalie sont `UNKNOWN_*`, `MISSING_REFERENCE`, `MISSING_PAYLOAD`, `MULTIPLE_PAYLOADS`, `INVALID_PAYLOAD`, `UNRESOLVED_VARIABLE`, `UNPARSED_ENTRY` et `FLOW_CYCLE` ;
+  - toute entrée du ZIP non interprétée est listée dans `unparsed_entries`. C'est ce qui révélera les écarts de format sur les vrais exports ;
+  - seul un export illisible lève `ExportReadError` : ZIP corrompu, manifest absent ou JSON invalide.
+- **Variables** (`reader/variables.py`) : `${projectKey}`, les variables de projet et des variables d'instance optionnelles sont résolues. Le reste est listé dans `unresolved_variables`.
+- **Graphe du Flow** (`model/flow.py`, networkx) :
+  - les nœuds `dataset:<nom>` et `recipe:<nom>` ont un type : dataset, dataset partagé d'un autre projet ou référence manquante ;
+  - l'ordre topologique est lexicographique, donc déterministe ;
+  - les cycles sont détectés. Le graphe est stocké dans l'IR sous une forme sérialisable.
+- **Lecteur API** (`reader/api_reader.py`) : l'interface seule, conforme au protocole `ProjectReader`. Elle lève `NotImplementedError` en attendant un accès à l'API.
+- **CLI** : `dku2dbx analyze <export.zip> --dump-ir [--out out/]` écrit `out/<projet>/ir.json` et affiche un résumé des anomalies. Sans `--dump-ir`, la commande renvoie « prévue en phase 2 ».
+- **Hypothèses** : H-18 à H-24 ont été ajoutées et H-02 et H-06 complétées (`docs/hypotheses.md`). Toutes sont marquées `# ASSUMPTION` dans le code.
+
+### Résultats
+
+- `uv run pytest` : **66 tests passés**, dont 2 snapshots d'IR (`tests/__snapshots__/test_reader/`).
+- Critères de fin de phase :
+  - les deux fixtures sont lues sans erreur ;
+  - l'IR sérialisée est stable : elle est figée par snapshot et identique octet pour octet d'une exécution à l'autre ;
+  - le graphe de `DEMO_SIMPLE` est vérifié : nœuds, arêtes et ordre topologique ;
+  - un type inconnu (recette, dataset, scénario, `metaType` de step, fichier du ZIP) est conservé et signalé.
+- `ruff check`, `ruff format --check` et `mypy --strict` (avec le plugin pydantic) : propres.
+
+### Points ouverts
+
+- **Aucun vrai export dans `exports/`** : toutes les hypothèses de format restent `SUPPOSÉE`. Le premier vrai export permettra de les confirmer ou de les corriger : `uv run dku2dbx analyze exports/<x>.zip --dump-ir`, puis examen de `unparsed_entries` et de `issues`.
+- **H-22 (moteur d'exécution)** est l'hypothèse la plus fragile : le moteur réellement utilisé n'est peut-être visible que via l'API.
+- **Variables d'instance** (`${NODE_DC}`) : le lecteur les accepte en paramètre (`instance_variables`), mais la CLI n'a pas encore d'option pour les passer. À décider en phase 2 ou en phase 7.
