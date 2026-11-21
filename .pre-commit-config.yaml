@@ -1,0 +1,33 @@
+# Installer les hooks : uv run pre-commit install
+# Les hooks ruff/mypy/pytest utilisent l'environnement uv du projet (versions verrouillées
+# dans uv.lock), pour rester identiques à la CI.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: detect-private-key
+
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy (strict, src/)
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false
