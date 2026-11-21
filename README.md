@@ -11,6 +11,7 @@ Prérequis : [uv](https://docs.astral.sh/uv/). Java 17+ est aussi nécessaire po
 uv sync                                         # crée .venv et installe les dépendances (uv.lock)
 uv run pre-commit install                       # installe les hooks Git
 uv run dku2dbx --help                           # CLI
+uv run dku2dbx analyze export.zip --dump-ir     # écrit out/<projet>/ir.json (modèle interne)
 uv run python tests/fixtures/make_fixture.py    # régénère les exports synthétiques
 uv run pytest                                   # tests
 uv run ruff check . && uv run ruff format --check . && uv run mypy
