@@ -25,6 +25,7 @@ dev = [
     "ruff>=0.6",
     "mypy>=1.11",
     "pre-commit>=3.8",
+    "types-networkx>=3.6.1.20261119",
 ]
 
 [build-system]
@@ -44,6 +45,10 @@ src = ["src", "tests"]
 select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "PL", "N"]
 ignore = ["PLR2004"]  # magic numbers: acceptable dans les tests et fixtures
 
+[tool.ruff.lint.flake8-bugbear]
+# typer declares parameters through default values (its documented style)
+extend-immutable-calls = ["typer.Argument", "typer.Option"]
+
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["PLR0913", "PLR0915"]
 
@@ -53,6 +58,7 @@ python_version = "3.11"
 strict = true
 files = ["src"]
 mypy_path = "src"
+plugins = ["pydantic.mypy"]
 
 # --- pytest -----------------------------------------------------------------
 [tool.pytest.ini_options]
