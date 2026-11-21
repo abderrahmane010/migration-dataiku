@@ -1,0 +1,6 @@
+# Endpoint Model Serving Databricks VALIDÉ PAR LA SÉCURITÉ (phase 8).
+# Vide par défaut : sans endpoint, l'étape LLM est désactivée (règle 5 de CLAUDE.md).
+# Aucun token ici : l'authentification passe par un profil Databricks CLI
+# ou des variables d'environnement.
+endpoint: null
+profile: null

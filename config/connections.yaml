@@ -1,0 +1,6 @@
+# Connexion Dataiku -> catalog.schema Unity Catalog — rempli en phase 7.
+# Exemple de forme attendue (valeurs fictives) :
+#   pg_sources:
+#     catalog: bac_a_sable
+#     schema: sources
+connections: {}

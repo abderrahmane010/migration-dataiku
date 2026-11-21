@@ -1,0 +1,42 @@
+# Exports Dataiku réels et artefacts générés : jamais dans Git
+exports/*
+!exports/.gitkeep
+out/*
+!out/.gitkeep
+
+# Archives : seules les fixtures synthétiques sont versionnées
+*.zip
+!tests/fixtures/**/*.zip
+
+# Secrets
+.env
+.env.*
+*.pem
+.databrickscfg
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Spark local
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Éditeurs
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Claude Code : réglages locaux
+.claude/settings.local.json

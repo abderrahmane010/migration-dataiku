@@ -1,0 +1,6 @@
+# Score de complexité et estimation d'effort — rempli en phase 2.
+# Grille inspirée de Lakebridge : 4 niveaux (LOW, MEDIUM, HIGH, VERY_HIGH) ;
+# un niveau est atteint dès qu'une seule de ses conditions est remplie.
+# Les coefficients d'effort seront « à calibrer sur le pilote ».
+levels: {}
+effort_days: {}

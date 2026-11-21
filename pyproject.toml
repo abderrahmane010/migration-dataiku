@@ -1,0 +1,63 @@
+[project]
+name = "dku2dbx"
+version = "0.0.1"
+description = "Usine de migration de projets Dataiku DSS vers Databricks"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "pydantic>=2.7",
+    "sqlglot>=25.0",
+    "networkx>=3.3",
+    "jinja2>=3.1",
+    "lark>=1.2",
+]
+
+[project.scripts]
+dku2dbx = "dku2dbx.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "syrupy>=4.6",
+    "pyspark>=4.0,<5",
+    "chispa>=0.10",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "pre-commit>=3.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dku2dbx"]
+
+# --- ruff -------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "PL", "N"]
+ignore = ["PLR2004"]  # magic numbers: acceptable dans les tests et fixtures
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR0913", "PLR0915"]
+
+# --- mypy -------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src"]
+mypy_path = "src"
+
+# --- pytest -----------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "spark: test qui nécessite PySpark et une JVM (Java 17+)",
+]
