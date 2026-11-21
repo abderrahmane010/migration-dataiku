@@ -13,6 +13,9 @@ out/*
 .env.*
 *.pem
 .databrickscfg
+github-ssh*
+id_rsa*
+id_ed25519*
 
 # Python
 __pycache__/
